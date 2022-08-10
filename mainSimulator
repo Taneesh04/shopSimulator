@@ -1,0 +1,412 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+class Main {
+  public static void main(String[] args) {
+    // Introduction to Store
+    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    Date date = new Date();
+    System.out.println(formatter.format(date));
+    DecimalFormat cash = new DecimalFormat("#0.00");
+    Scanner input = new Scanner(System.in);
+    System.out.println(" \n\n_________________");
+    System.out.println("Welcome to TanMart! ");
+    System.out.println("_________________");
+   
+    // Initializing Variables so the function works in a continuous while loop
+    double cost = 0;
+    int x = 1;
+
+
+      // Initializing Variables for the Reciept - Taneesh
+     int basketballAmount = 0;
+     double basketballCost = 0;
+     int baseballAmount = 0;
+     double baseballCost = 0;
+     double footballCost = 0;
+     int footballAmount = 0;
+     double hockeyCost = 0;
+     int hockeyAmount = 0;
+     double fictionCost = 0;
+     int fictionAmount = 0;
+     double textCost = 0;
+     int textAmount = 0;
+     double bioCost = 0;
+     int bioAmount = 0; 
+     int nonFAmount = 0;
+     double nonFCost = 0;
+    
+
+
+
+    while (x == 1) { // While Statement for it to loop while you're shopping 
+      System.out.println(" \n\nWhat section would you like to shop in? ");
+      System.out.println(
+          "\n\nThe Options are:\n \n 1. Sports \n 2. Books \n 3. Exit \n 4. Check current Total cost \n\nPlease Enter 1 for Sports, 2 for Books, 3 to Exit, or 4 to view the total cost of the items you purchased so far");
+
+      // Prompting the User to Select A section and introducing items in each section.
+
+      int section = input.nextInt();
+
+      if (section == 1)
+
+      {
+        System.out.println("\n\nThe following items are in this section: ");
+        System.out.print(
+            "\n\n 1. Basketball Gear \n 2. Baseball Gear \n 3. Football Gear \n 4. Hockey  Gear \n\nPlease Enter By the Corresponding Number!: ");
+        int choice = input.nextInt();
+        System.out.print("\nPlease enter the amount you want!: ");
+        int amount = input.nextInt();
+        // bulk order check if you purchase more than 100 of any item the program is
+        // terminated
+        if (amount > 100) {
+          System.out.println(
+              "\nThis is a bulk order if you would like to purchase " + amount + " of this item call (848) 304-5500");
+          System.exit(0);
+        }
+
+        if (choice == 1) {
+          System.out.println("Each item costs $13.00");
+          cost += amount * 13.00;
+          cost = Math.round(cost * 100) / 100.00;
+          basketballAmount = amount;
+          basketballCost = amount * 22.00;
+          String Fcost = cash.format(cost);
+
+
+          System.out.println("\nThe total cost of your items are $" + Fcost);
+          System.out.println("-------------------");
+        } else if (choice == 2) {
+          System.out.println("Each item costs $22.00");
+          cost += amount * 22.00;
+          cost = Math.round(cost * 100) / 100.00;
+          baseballAmount = amount;
+          baseballCost = amount * 22.00;
+          String Fcost = cash.format(cost);
+          System.out.println("\nThe total cost of your items are $" + Fcost);
+          System.out.println("-------------------");
+        } else if (choice == 3) {
+          System.out.println("Each item costs $15.00");
+          cost += amount * 15.00;
+          cost = Math.round(cost * 100) / 100.00;
+          footballCost = 15.00 * amount;
+           footballAmount = amount;
+          String Fcost = cash.format(cost);
+          System.out.println("\nThe total cost of your items are $" + Fcost);
+          System.out.println("-------------------");
+        } else if (choice == 4) {
+          System.out.println("Each item costs $30.00");
+          cost += amount * 30.00;
+          cost = Math.round(cost * 100) / 100.00;
+         hockeyCost = 30.00 * amount;
+          hockeyAmount = amount;
+          String Fcost = cash.format(cost);
+          System.out.println("\nThe total cost of your items are $" + Fcost);
+          System.out.println("-------------------");
+        }
+      } else if (section == 2) {
+        System.out.println("The following items are in this section: ");
+        System.out.println(
+            "\n\nThe Options are: \n\n 1. Fiction Book \n 2. NonFiction Book \n 3. Biography \n 4. Textbooks \n\n Please Enter By the Corresponding Number!");
+        int choice = input.nextInt();
+        System.out.print("Please enter the amount you want!: ");
+        int amount = input.nextInt();
+        if (amount > 100) {
+          System.out.println(
+              "This is a bulk order if you would like to purchase " + amount + " of this item call (848) 304-5500");
+          System.exit(0);
+        }
+
+        if (choice == 1) {
+          System.out.println("Each item costs $5.66");
+          cost += amount * 5.66;
+          cost = Math.round(cost * 100) / 100.00;
+           fictionCost = 5.66 * amount;
+           fictionAmount = amount;
+           String Fcost = cash.format(cost);
+          System.out.println("\nThe total cost of your items are $" + Fcost);
+          System.out.println("-------------------");
+        } else if (choice == 2) {
+          System.out.println("Each item costs $1.74");
+          cost += amount * 1.74;
+          cost = Math.round(cost * 100) / 100.00;
+          nonFCost = 1.74 * amount;
+           nonFAmount = amount;
+           String Fcost = cash.format(cost);
+          System.out.println("\nThe total cost of your items are $" + Fcost);
+          System.out.println("-------------------");
+        } else if (choice == 3) {
+          System.out.println("Each item costs $10.00");
+          cost += amount * 10.00;
+          cost = Math.round(cost * 100) / 100.00;
+           bioCost = 10.00 * amount;
+           bioAmount = amount;
+           String Fcost = cash.format(cost);
+          System.out.println("\nThe total cost of your items are $" + Fcost);
+          System.out.println("-------------------");
+        } else if (choice == 4) {
+          System.out.println("Each item costs $200.00");
+          cost += amount * 200.00;
+          cost = Math.round(cost * 100) / 100.00;
+           textCost = 200.00 * amount;
+           textAmount = amount;
+           String Fcost = cash.format(cost);
+          System.out.println("\nThe total cost of your items are $" + Fcost);
+          System.out.println("-------------------");
+        } else {
+          System.out.println("\n\nNone of these were valid choices");
+        }
+
+      } else if (section == 3) {
+        x++;
+      } else if (section == 4) {
+         String Fcost = cash.format(cost);
+        System.out.println("\n\nThe total cost of your items so far are $" + Fcost);
+        System.out.println("So Far You Have Gotten:");
+ if (basketballAmount>0){
+String fBB = cash.format(basketballCost);
+System.out.println("|                          |");
+System.out.println("| "+ basketballAmount + ": Basketball gear " + fBB + "  |");
+}
+if (baseballAmount>0){
+String fBA = cash.format(baseballCost);
+System.out.println("|                          |");
+System.out.println("| "+ baseballAmount + ": Baseball gear " + fBA + "    |");
+}
+if (footballAmount>0){
+String fFA = cash.format(footballCost);
+System.out.println("|                          |");
+System.out.println("| "+ footballAmount + ": Football gear " + fFA + "    |");
+}
+if (hockeyAmount>0){
+String fHA = cash.format(hockeyCost);
+System.out.println("|                          |");
+System.out.println("| "+ hockeyAmount + ": Hockey gear " + fHA + "      |");
+}
+if (fictionAmount>0){
+String fCA = cash.format(fictionCost);
+System.out.println("|                          |");
+System.out.println("| "+ fictionAmount + ": Fiction Book " + fCA + "     |");
+}
+if (textAmount>0){
+String fTB = cash.format(textCost);
+System.out.println("|                          |");
+System.out.println("| "+ textAmount + ": Textbook " + fTB + "        |");
+}
+if (bioAmount>0){  
+String fBC = cash.format(bioCost);
+System.out.println("|                          |");
+System.out.println("| "+ bioAmount + ": Biography " + fBC + "        |");
+}
+if (nonFAmount>0){
+String fNF = cash.format(nonFCost);
+System.out.println("|                          |");
+System.out.println("| "+ nonFAmount + ": Nonfiction book " + fNF + "  |");
+}
+      }
+    }
+       
+
+      
+  
+    // lottery system
+    if (cost >= 50.00) {
+      System.out.println("-------------------");
+      System.out.println("Because you spent over $50, Would you like to spend and extra $1 and try our discount lottery? (1 for yes or 2 for no) ");
+      cost++;
+      int lottoChoice = input.nextInt();
+      if (lottoChoice == 1) {
+        int discount = (int) (Math.random() * 100);
+
+        discount = 100 - discount;
+
+        System.out.println("Your discount is " + discount + "%");
+        double ddiscount = (double) (discount / 100.00);
+        cost = cost * (1 - ddiscount);
+        cost = Math.round(cost * 100) / 100.00;
+         String Fcost = cash.format(cost);
+        System.out.println("your new cost is " + Fcost);
+      } else if (lottoChoice == 2) {
+        System.out.println("Ok");
+        
+      }
+    }
+
+    // Tax
+    System.out.println("-------------------");
+    System.out.println("\nThe Tax Rate is 6.999% on your purchase");
+
+    double tax = cost * 0.06999;
+    tax = Math.round(tax * 100) / 100.00;
+  cost = cost + tax;
+    cost = Math.round(cost * 100) / 100.00;
+    System.out.println("\nYour Tax is $" + tax);
+    System.out.println("\nThe cost of your purchase with tax is: $" + cost);
+    System.out.println("-------------------");
+    // End of Tax
+
+    // Shipping Costs
+    if (cost > 1000) {
+      System.out.println("-------------------");
+      System.out.println("Purchases over $1000 get free shipping to home no matter what!");
+      System.out.println("-------------------");
+    } else {System.out.println("-------------------");
+      System.out.println("You have the option to enter In Store or at Home shipping");
+      System.out.println("Enter 1 for In Store Shipping or 2 for At Home Shipping!");
+      int shipping = input.nextInt();
+      if (shipping == 1) {
+        System.out.println(
+            "In Store Purchases arrive in either 5-7 business days for free or 1-3 days with a cost of $50\nEnter 1 for the free option or 2 for the rush option");
+        shipping = input.nextInt();
+        if (shipping == 1) {
+          System.out.println(
+              "You have selected the free option for in store pickup! We will email you from TanMARTEM@taneeshtanmay.com when your purchase is Shipped");
+              System.out.println("-------------------");
+              int Cshipping = 0;
+        } else if (shipping == 2) {
+          System.out.println(
+              "You have selected the rush option for in store pickup! We will email you from TanMARTEM@taneeshtanmay.com when your purchase is Shipped. A $50 shipping fee has been added to your purchase");
+              System.out.println("-------------------");
+          cost += 50;
+          int Cshipping = 50;
+          cost = Math.round(cost * 100) / 100.00;
+           String Fcost = cash.format(cost);
+          System.out.println("The new cost of your purchase is $" + Fcost);
+        }
+
+      } else if (shipping == 2) {
+        System.out.println(
+            "At Home shipping arrive in either 5-7 business days for $10, 3-4 days with a cost of $30, or 1-2 with a cost of $75\nEnter 1 for the standard option, 2 for the ground option, or 3 for the next day option");
+        shipping = input.nextInt();
+        if (shipping == 1) {
+            System.out.println(
+              "You have selected the standard option for at home shipping! We will email you from TanMARTEM@taneeshtanmay.com when your purchase is Shipped. A $10 shipping fee has been added to your purchase");
+              System.out.println("-------------------");
+              cost += 10;
+          cost = Math.round(cost * 100) / 100.00;
+          int Cshipping = 10;
+          String Fcost = cash.format(cost);
+          System.out.println("The new cost of your purchase is $" + Fcost);
+        }
+        else if (shipping == 2){
+            System.out.println(
+              "You have selected the ground option for at home shipping! We will email you from TanMARTEM@taneeshtanmay.com when your purchase is Shipped. A $30 shipping fee has been added to your purchase");
+              System.out.println("-------------------");
+              cost += 30;
+              int Cshipping = 30;
+          cost = Math.round(cost * 100) / 100.00;
+          String Fcost = cash.format(cost);
+          System.out.println("The new cost of your purchase is $" + Fcost);
+        } 
+        else if (shipping == 3) {
+           System.out.println(
+              "You have selected the rush option for at home shipping! We will email you from TanMARTEM@taneeshtanmay.com when your purchase is Shipped. A $75 shipping fee has been added to your purchase");
+              System.out.println("-------------------");
+              cost += 75;
+              int Cshipping = 75;
+          cost = Math.round(cost * 100) / 100.00;
+          String Fcost = cash.format(cost);
+          System.out.println("The new cost of your purchase is $" + Fcost);
+          System.out.println("-------------------");
+        }
+
+      }
+
+    }
+    
+System.out.println("____________________________");
+System.out.println("|**************************|");
+System.out.println("|          TanMart         |");
+System.out.println("|**************************|");
+System.out.println("|family first profits later|");
+System.out.println("|                          |");
+if (basketballAmount>0){
+System.out.println("|                          |");
+System.out.println("| "+ basketballAmount + ": Basketball gear " + basketballCost + "  |");
+}
+ if (basketballAmount>0){
+String fBB = cash.format(basketballCost);
+System.out.println("|                          |");
+System.out.println("| "+ basketballAmount + ": Basketball gear " + fBB + "  |");
+}
+if (baseballAmount>0){
+String fBA = cash.format(baseballCost);
+System.out.println("|                          |");
+System.out.println("| "+ baseballAmount + ": Baseball gear " + fBA + "    |");
+}
+if (footballAmount>0){
+String fFA = cash.format(footballCost);
+System.out.println("|                          |");
+System.out.println("| "+ footballAmount + ": Football gear " + fFA + "    |");
+}
+if (hockeyAmount>0){
+String fHA = cash.format(hockeyCost);
+System.out.println("|                          |");
+System.out.println("| "+ hockeyAmount + ": Hockey gear " + fHA + "      |");
+}
+if (fictionAmount>0){
+String fCA = cash.format(fictionCost);
+System.out.println("|                          |");
+System.out.println("| "+ fictionAmount + ": Fiction Book " + fCA + "     |");
+}
+if (textAmount>0){
+String fTB = cash.format(textCost);
+System.out.println("|                          |");
+System.out.println("| "+ textAmount + ": Textbook " + fTB + "        |");
+}
+if (bioAmount>0){  
+String fBC = cash.format(bioCost);
+System.out.println("|                          |");
+System.out.println("| "+ bioAmount + ": Biography " + fBC + "        |");
+}
+if (nonFAmount>0){
+String fNF = cash.format(nonFCost);
+System.out.println("|                          |");
+System.out.println("| "+ nonFAmount + ": Nonfiction book " + fNF + "  |");
+}
+System.out.println("|                          |");
+System.out.println("|       Total Cost:        |");
+System.out.print("|");
+String value = String.valueOf(cost);
+int space2 = 14;
+for (int space = 1; space <=10; space++) {
+
+System.out.print(" ");
+}
+	 
+System.out.print(value);
+if (value.length() == 3) {
+space2 -= 1;
+}
+
+if (value.length() == 4) {
+
+space2 -= 2;
+}
+if (value.length() == 5) {
+
+space2 -= 3;
+}
+
+if (value.length() == 6) {
+space2 -= 4;
+}
+if (value.length() == 7) {
+space2 -= 5;
+}
+if (value.length() == 8) {
+space2 -= 6;
+}
+for (int space3 = 1; space3 <= space2; space3++) {
+System.out.print(" ");
+}
+System.out.println("|");
+System.out.println("|                          |");
+System.out.println("|                          |");
+System.out.println("|               "+ formatter.format(date) +" |");
+System.out.println("|__________________________|");
+        }
+}
+
+
